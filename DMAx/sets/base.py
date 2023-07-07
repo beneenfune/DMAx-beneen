@@ -1,3 +1,20 @@
+"""Module defining base LAMMPS input generator."""
+
+import os
+import subprocess
+import random
+
+def randomNumber(digits):
+    """
+    Function utilized to generate a random number for modifying the velocity seed for each calculation.
+
+    Arguments:
+    digits -- Number of digits in the random number to be generated.
+    """
+    lower = 10**(digits-1)
+    upper = 10**digits - 1
+    return random.randint(lower, upper)
+
 class LammpsInputGenerator:
     """
     Base LAMMPS input generator. Utilizes Prof. Tod A. Pascal's createLammpsInput C++ code to generate LAMMPS input files.
